@@ -72,10 +72,8 @@ for reservoir_num = 1:Reservoir_num
     end
     P_R_S(1,reservoir_num) = PSNR;P_R_S(2,reservoir_num) = RMSE;P_R_S(3,reservoir_num) = SSIM;
     if reservoir_num > 1
-        if P_R_S(1,reservoir_num) < P_R_S(1,reservoir_num-1) && P_R_S(3,reservoir_num) < P_R_S(3,reservoir_num-1)
-            DenoisingResult(Input,Denoising_img,window_num,intensity,noise_num,file_name,reservoir_num)
-            break
-        elseif reservoir_num == Reservoir_num
+        %%%%% fixed reservoir number by experiments %%%%%
+        if reservoir_num == Reservoir_num
             DenoisingResult(Input,Denoising_img,window_num,intensity,noise_num,file_name,reservoir_num)
             break
         end

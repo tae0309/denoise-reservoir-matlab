@@ -8,7 +8,7 @@ parpool(numcores) % the number of physical cores(not logical cores)
 
     N = 10;  %mean : 3, gaussian : 3, unsharp : 3, zero column : 1
     b = -0.5 * ones([1,N]);    %input*Win의 범위가 0이상 1이하
-    Reservoir_num = 20;     
+    Reservoir_num = 6; % Reservoir_num = 20;     
     alpha = 0.5;
     beta = 0.9;
     sigma = 1; %standard deviation of gaussian distribution
