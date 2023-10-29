@@ -1,5 +1,0 @@
-Input image's height should be less than 400.
-Input image's width should be less than 400.
-
-1. Put the input image in the "test_set" folder.
-2. In the 43rd line of the code "main0_test.m", the name of the test image is specified.

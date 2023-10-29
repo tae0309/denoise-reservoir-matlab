@@ -1,14 +1,11 @@
-function [Denoising_img,test_clean_img,test_noisy_img,PSNR,RMSE,SSIM] = plot_and_err_(noise_num,input,predictR,predictG,predictB,patch_size)
+function [Denoising_img,test_clean_img,test_noisy_img,PSNR,RMSE,SSIM] = plot_and_err_(test_clean_img,input,predictR,predictG,predictB,patch_size,reservoir_num)
 
-path = 'test_set/';
-test_clean_img = imread([path, num2str(noise_num), '.png']);
-test_clean_img = im2double(test_clean_img);
-test_noisy_img = input; %복원 전의 image
+test_noisy_img = input; % noisy image
 
 Imgsize = size(test_clean_img);
 l = (patch_size-1)/2;
 
-%실제로 복원할 때, 가장자리는 복원할 수 없기 때문에 가장자리만 빼고 오차계산 및 복원된 그림 출력
+% calculate differences and show the restored image except edges
 test_clean_img = test_clean_img(l + 1:Imgsize(1,1) - l,l+1:Imgsize(1,2)-l,:);
 test_noisy_img = test_noisy_img(l+1:Imgsize(1,1)-l,l+1:Imgsize(1,2)-l,:);
 Denoising_img = zeros(Imgsize(1,1) - 2*l,Imgsize(1,2) - 2*l,3);
@@ -24,7 +21,5 @@ PSNR = psnr(test_clean_img,Denoising_img);
 RMSE = sqrt(immse(test_clean_img,Denoising_img));
 SSIM = ssim(test_clean_img,Denoising_img);
 
-fprintf('PSNR = %f\n', PSNR);
-fprintf('RMSE = %f\n', RMSE);
-fprintf('SSIM = %f\n', SSIM);
+fprintf('%d^{th} Reservoir: PSNR = %f, RMSE = %f, SSIM = %f\n', reservoir_num,PSNR,RMSE,SSIM);
 
