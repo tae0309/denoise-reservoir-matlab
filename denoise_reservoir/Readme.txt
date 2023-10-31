@@ -7,7 +7,7 @@ Notes)
 
 2. This code opens a parpool session. In the recursive reservoir concatenation, the reconstruction at each reservoir is fully parallel in the sense that every noisy pixel does not communicate with any other noisy pixels.
 
-3. There are 4 parameters to select: testImage, Intensity,NumTrainingImages,NumReservoirs.
+3. There are 4 parameters to select: testImage, Intensity, NumTrainingImages, NumReservoirs.
    a) testImage is an integer between 1 and 80.
    b) Intensity is a value in {0.6, 0.8}.
    c) NumTrainingImages is a value in {50, 100, 200, 500, 1000},
@@ -21,12 +21,12 @@ Notes)
                                                        testImage         = 53,  
                                                        Intensity         = 0.6,
                                                        NumTrainingImages = 500,
-                                                       NumReservoirs     = 15.
+                                                       NumReservoirs     = 10.
 
-   Run_RRC(testImage)                             =>   Intensity = 0.6, NumTrainingImages = 500, NumReservoirs = 15 are used.
+   Run_RRC(testImage)                             =>   Intensity = 0.6, NumTrainingImages = 500, NumReservoirs = 10 are used.
 
-   Run_RRC(testImage,Intensity)                   =>   NumTrainingImages = 500, NumReservoirs = 15 are used.
+   Run_RRC(testImage,Intensity)                   =>   NumTrainingImages = 500, NumReservoirs = 10 are used.
 
-   Run_RRC(testImage,Intensity,NumTrainingImages) =>   NumReservoirs = 15 are used.
+   Run_RRC(testImage,Intensity,NumTrainingImages) =>   NumReservoirs = 10 are used.
 
    Run_RRC(testImage,Intensity,NumTrainingImages,NumReservoirs) to use user's choice of parameters.
