@@ -33,7 +33,7 @@ function Run_RRC_Train(set_window_num, set_intensity)
         end
 
     else
-        if prod(ismember(set_window_num, [50, 100, 200, 500, 1000])) || prod(ismember(set_intensity, [0.6, 0.8]))
+        if ~( prod(ismember(set_window_num, [50, 100, 200, 500, 1000])) || prod(ismember(set_intensity, [0.6, 0.8])) )
             set_window_num = 200;
             set_intensity = 0.8;
             disp(['The selected windows_num and Intensity are invalid. We select windows_num=' num2str(set_window_num) ' and Intensity=' num2str(set_intensity)])
