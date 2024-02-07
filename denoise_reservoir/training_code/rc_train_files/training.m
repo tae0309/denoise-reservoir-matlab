@@ -152,23 +152,25 @@ end
 
 save(num2str(window_num)+"_"+num2str(intensity)+".mat","Train_error_collection")
 
-figure(1);
+tmp_fig_num = randi([1000, 9999],  1, 2);
+
+figure(999);
+%figure(tmp_fig_num(1));
+str_legend_t = ['Train=', num2str(window_num), ', intensity=', num2str(intensity)];
+plot(1:Reservoir_num, t_tictoc, LineStyle="-", Marker="o", DisplayName=str_legend_t)
 % title('Training time')
 xlabel('Recursion iteration')
 ylabel('Training time (seconds)')
-
-str_legend_t = ['Train=', num2str(window_num), ', intensity=', num2str(intensity)];
-plot(1:Reservoir_num, t_tictoc, LineStyle="-", Marker="o", DisplayName=str_legend_t)
 legend(Location = "northwest")
 hold on
 
-figure(2);
+figure(998);
+% figure(tmp_fig_num(2));
+str_legend_tc = ['Train=', num2str(window_num), ', intensity=', num2str(intensity)];
+plot(1:Reservoir_num, tc_tictoc, LineStyle="--", Marker="*", DisplayName=str_legend_tc)
 % title('Cumulative Training time')
 xlabel('Recursion iteration')
 ylabel('Cumulative Training time (seconds)')
-
-str_legend_tc = ['Train=', num2str(window_num), ', intensity=', num2str(intensity)];
-plot(1:Reservoir_num, tc_tictoc, LineStyle="--", Marker="*", DisplayName=str_legend_t)
 legend(Location = "northwest")
 hold on
 
